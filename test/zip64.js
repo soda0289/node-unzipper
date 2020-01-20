@@ -10,10 +10,6 @@ var UNCOMPRESSED_SIZE = 5368709120;
 var ZIP64_OFFSET = 72;
 var ZIP64_SIZE = 36
 
-// Backwards compatibility for node versions < 8
-if (!Stream.Writable || !Stream.Writable.prototype.destroy)
-  Stream = require('readable-stream');
-
 t.test('Correct uncompressed size for zip64', function (t) {
   var archive = path.join(__dirname, '../testData/big.zip');
 

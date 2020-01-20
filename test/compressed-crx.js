@@ -11,6 +11,7 @@ test('parse/extract crx archive', function (t) {
   var archive = path.join(__dirname, '../testData/compressed-standard-crx/archive.crx');
 
   temp.mkdir('node-unzip-', function (err, dirPath) {
+      console.log('dirPath', dirPath);
     if (err) {
       throw err;
     }
@@ -30,6 +31,7 @@ test('parse/extract crx archive', function (t) {
         if (err) {
           throw err;
         }
+            console.log('DIFFS', diffs);
         t.equal(diffs.length, 0, 'extracted directory contents');
         t.end();
       });
@@ -73,6 +75,8 @@ test('open methods', function(t) {
           t.end();
         });
       });
+      t.end();
     });
   });
+  t.end();
 });
